@@ -1,0 +1,18 @@
+#应用名称
+spring:
+  application:
+    name: user-service
+
+  zipkin:
+    base-url: http://192.168.145.101:9411
+
+#端口
+server:
+  port: 8800
+
+#指定注册中心
+eureka:
+  client:
+    service-url:
+      defaultzone: http://localhost:8761/eureka/
+
