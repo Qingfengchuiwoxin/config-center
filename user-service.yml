@@ -16,6 +16,6 @@ eureka:
     service-url:
       defaultzone: http://localhost:8761/eureka/
 
-environment: dev
+environment: test
 branch: v1.0
 
