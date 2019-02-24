@@ -7,7 +7,7 @@ server:
   port: 8800
 
 #环境
-environment: dev
+environment: 开发环境
 #分支
 branch: master
 
