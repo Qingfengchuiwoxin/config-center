@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: order-service
+
+server:
+  port: 8900
+
+
+#自定义负载均衡策略 默认采用RoundRobinRule轮训的方式：每台机器的配置一样
+#服务名称
+user-service:
+  ribbon:
+   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+#RandomRule 随机的方式
+#WeightedResponseTimeRule：部分机器配置强
+
+
+#1.默认
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 5000
+
+#2.配置具体方法的超时时间
+#hystrix:
+#  command:
+#    serverMethod:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 3000
+
