@@ -1,15 +1,25 @@
 spring:
   zipkin:
     base-url: http://192.168.145.101:9411
-  http:
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
+    
+  #rabbitmq的配置
+  rabbitmq:
+    host: 192.168.145.101
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
 
 #端口
 server:
   port: 8800
+  
+#暴露全部监控信息
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 #环境
 environment: 生产环境
