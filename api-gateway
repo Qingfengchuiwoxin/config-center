@@ -1,0 +1,32 @@
+spring:
+
+server:
+  port: 9999
+
+zuul:
+  routes:
+    order-service: /api/order/**
+    admin-service: /api/admin/**
+    user-service: /api/user/**
+#  #忽略下面正则规则的访问
+  ignored-patterns: /*-service/**
+#
+#  #处理http请求头为空的问题,默认将"Cookie", "Set-Cookie", "Authorization"过滤，所以获取不到Cookie
+  sensitive-headers:
+
+  #以上配置表示启用限流策略，并且所有服务在3秒内只能有1次请求且所有请求时间总和不得超过2秒
+  #这说明3秒内的>1次的访问已经被限流策略挡掉
+  ratelimit:
+    enabled: true
+    repository: REDIS  #对应存储类型（用来存储统计信息）
+    behind-proxy: true  #代理之后
+    default-policy: #可选 - 针对所有的路由配置的策略，除非特别配置了policies
+      limit: 10 #可选 - 每个刷新时间窗口对应的请求数量限制
+      quota: 4 #可选-  每个刷新时间窗口对应的请求时间限制（秒）
+      refresh-interval: 5 # 刷新时间窗口的时间，默认值 (秒)
+      type: #可选 限流方式
+        - url
+
+
+
+
