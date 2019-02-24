@@ -1,6 +1,11 @@
 spring:
   zipkin:
     base-url: http://192.168.145.101:9411
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 
 #端口
 server:
