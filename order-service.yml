@@ -1,11 +1,3 @@
-spring:
-  application:
-    name: order-service
-
-server:
-  port: 8900
-
-
 #自定义负载均衡策略 默认采用RoundRobinRule轮训的方式：每台机器的配置一样
 #服务名称
 user-service:
