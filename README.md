@@ -1,2 +1,2 @@
 # config-center
-测试springcoud配置中心
+这是SpringCloud的配置中心
